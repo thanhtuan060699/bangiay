@@ -13,15 +13,20 @@ public class OrderDetailEntity extends BaseEntity{
 	@Column(name="amount")
 	private Integer amount;
 	
-	@ManyToOne(fetch =FetchType.LAZY )
+	
+	@ManyToOne(fetch =FetchType.EAGER )
 	@JoinColumn(name="orderid")
 	private OrderSneakerEntity orderEntity;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="sneakerid")
-	private SneakerEntity sneakerEntity;
 	
+	@Column(name="size")
+	private Double size;
 	
+	@Column(name="sneakerName")
+	private String sneakerName;
+	
+	@Column(name="price")
+	private Long price;
 
 	public Integer getAmount() {
 		return amount;
@@ -39,12 +44,28 @@ public class OrderDetailEntity extends BaseEntity{
 		this.orderEntity = orderEntity;
 	}
 
-	public SneakerEntity getSneakerEntity() {
-		return sneakerEntity;
+	public Double getSize() {
+		return size;
 	}
 
-	public void setSneakerEntity(SneakerEntity sneakerEntity) {
-		this.sneakerEntity = sneakerEntity;
+	public void setSize(Double size) {
+		this.size = size;
+	}
+
+	public String getSneakerName() {
+		return sneakerName;
+	}
+
+	public void setSneakerName(String sneakerName) {
+		this.sneakerName = sneakerName;
+	}
+
+	public Long getPrice() {
+		return price;
+	}
+
+	public void setPrice(Long price) {
+		this.price = price;
 	}
 	
 	

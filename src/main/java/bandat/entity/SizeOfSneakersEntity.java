@@ -23,7 +23,7 @@ public class SizeOfSneakersEntity {
 	@Column(name="amount")
 	private Integer amount;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="sneakerid")
 	private SneakerEntity sneakerEntity;
 

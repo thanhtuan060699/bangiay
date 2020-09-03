@@ -6,5 +6,6 @@ import bandat.entity.BrandSneakerEntity;
 import bandat.repository.custom.BrandSneakerRepositoryCustom;
 
 public interface BrandSneakerRepository extends JpaRepository<BrandSneakerEntity,Long>,BrandSneakerRepositoryCustom{
-	
+	BrandSneakerEntity findByNameIgnoreCase(String name);
+	BrandSneakerEntity findById(Long id);
 }

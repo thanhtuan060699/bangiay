@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-   <title>Quản lý nhà đất</title>
+  	<title><dec:title default="Admin Page"/></title>
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,8 +65,8 @@
 	<script src="<c:url value='/template/web/js/gmap.js' />"></script>
 	<script src="<c:url value='https://maps.googleapis.com/maps/api/js?key=AIzaSyDhAYvx0GmLyN5hlf6Uv_e9pPvUT3YpozE' />"></script>
 	<script src="<c:url value='/template/web/js/list-sneaker.js' />"></script>
+	<script src="<c:url value='/template/web/js/header.js' />"></script>
 	
-	<script src="<c:url value='/template/web/js/cart.js' />"></script>
 	
 </body>
 </html>

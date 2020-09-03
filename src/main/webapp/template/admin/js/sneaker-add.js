@@ -27,7 +27,14 @@ $(btnAddSneaker).click(function () {
 					contentType:"application/json",
 				
 					success: function (response) {
-						console.log('success');
+						if(response==1){
+							alert('Save success');
+							location.reload(true);
+						}
+						if(response==2){
+							alert('The name of sneaker existed !!! Please change the name');
+							
+						}
 							
 					},
 					error: function (response) {

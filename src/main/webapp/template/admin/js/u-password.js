@@ -14,7 +14,7 @@ $(btnPasswordUser).click(function(){
 	
 	$.ajax({
 		type: "POST",
-		url: "http://localhost:8080/homework/api-user-password",
+		url: "http://localhost:8080/api/user/changepassword",
 		data: JSON.stringify(data),
 		dataType: "json",
 		contentType:"application/json",
@@ -22,13 +22,13 @@ $(btnPasswordUser).click(function(){
 		success: function (response) {
 			console.log(response);
 			if(response==1){
-				window.location.href="/homework/admin-user?signal=PASSWORD&message=missing";
+				alert("Mật khẩu xác nhận không trùng với mật khẩu !!! Hãy nhập lại");
 			}
 			else if(response==2){
-				window.location.href="/homework/admin-user?signal=PASSWORD&message=confirmpassword";
+				alert("Mật khẩu cũ sai !!! Vui lòng nhập lại ");
 				
 			}else if(response==3){
-				window.location.href="/homework/admin-user?signal=PASSWORD&message=previouspassword";
+				alert("Thay đổi mật khẩu thành công !!! Vui lòng đăng nhập lại ");
 			}else if(response==4){
 				window.location.href="/homework/admin-user?signal=PASSWORD&message=samepassword";
 			}

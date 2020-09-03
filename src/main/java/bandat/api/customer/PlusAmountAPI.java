@@ -1,5 +1,6 @@
 package bandat.api.customer;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +20,9 @@ import bandat.util.SessionUtil;
 @RequestMapping(value = "/api/plus/amountcart")
 public class PlusAmountAPI {
 	@PostMapping
-	public @ResponseBody CartDTO plusAmountCart(@RequestBody CartDTO cartDTO,HttpServletRequest request) {
+	public @ResponseBody HashMap<String, Object> plusAmountCart(@RequestBody CartDTO cartDTO,HttpServletRequest request) {
 		List<CartDTO> cartDTOs=(List<CartDTO>) SessionUtil.getInstance().getValue(request, "carts");
+		HashMap<String, Object> hashMap=new HashMap<String, Object>();
 		CartDTO cartChange=findPlus(cartDTOs, cartDTO);
 		int amount=cartChange.getAmount();
 		if(amount<cartChange.getAmountMax()) {
@@ -30,8 +32,20 @@ public class PlusAmountAPI {
 			cartDTOs.set(findIndex(cartDTOs, cartChange), cartChange);
 			SessionUtil.getInstance().putValue(request, "carts", cartDTOs);
 		}
-		return cartChange;
+		hashMap.put("cartDTO", cartChange);
+		hashMap.put("totalPrice", totalPrice(cartDTOs));
+		return hashMap;
 	}
+	
+	public Long totalPrice(List<CartDTO> cartDTOs) {
+		long price =0;
+		for(CartDTO cartDTO:cartDTOs) {
+			price=price+cartDTO.getAmount()*cartDTO.getPrice();
+			
+		}
+		return price;
+	}
+	
 	private CartDTO findPlus(List<CartDTO> cartDTOs,CartDTO cart) {
 		for(CartDTO cartDTO:cartDTOs) {
 			if(cartDTO.getNameImage().equals(cart.getNameImage())&&cartDTO.getSneakerName().equals(cart.getSneakerName())) {

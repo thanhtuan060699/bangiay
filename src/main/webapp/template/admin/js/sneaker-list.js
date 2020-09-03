@@ -16,7 +16,7 @@ $('#btnAddListSneaker').click(function(){
 						error: function (response) {
 							console.log('failed');
 					
-						}
+		 				}
 						
 					});
 					console.log(getUrlVars()["id"]);

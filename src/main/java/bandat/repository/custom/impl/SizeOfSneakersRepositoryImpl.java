@@ -20,7 +20,7 @@ public class SizeOfSneakersRepositoryImpl implements SizeOfSneakersRepositoryCus
 	
 	@Override
 	public List<SizeOfSneakersEntity> findAllBySneakerId(Long sneakerId) {
-		String sql="select * from sizesneaker where sneakerid="+sneakerId;
+		String sql="select * from sizesneaker where sneakerid="+sneakerId+" and amount>0";
 		Query query=entityManager.createNativeQuery(sql,SizeOfSneakersEntity.class);
 		return query.getResultList();
 	}

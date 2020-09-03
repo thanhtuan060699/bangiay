@@ -42,9 +42,12 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <div class="repeat" data-sneakerRepeat="${repeatId}"></div>
                     <c:forEach var="item" items="${carts}">
-                    <tr>
-                        <td class="cart-image">
+                   
+                    <tr class="cart-sneaker" data-sneakerId="${item.sneakerId}">
+       
+                        <td class="cart-image" >
                             <img src="/usr/var/thumbnail/${item.nameImage}" alt="Quod soluta corrupti">
                         </td>
                         <td class="cart-ttl">
@@ -54,6 +57,7 @@
                         <td class="cart-price">
                             <b>${item.price} VNĐ</b>
                         </td>
+                        
                         <td class="cart-quantity">
                             <div class="cart-qnt"> 
                                 <input class="cart-amountC" data-cardId="${item.idCard}" value="${item.amount} " type="text">
@@ -73,13 +77,15 @@
                         <td class="cart-del">
                             <a href="#" class="cart-remove"></a>
                         </td>
+                     
                     </tr>
+                   
                     </c:forEach>
                     </tbody>
                 </table>
             </div>
             <ul class="cart-total">
-                <li class="cart-summ">Tổng tiền: <b>$815</b></li>
+                <li class="cart-summ cart-total1">Tổng tiền: <b>${totalPrice} VNĐ</b></li>
             </ul>
             <div class="cart-submit">
                 <a href="/allstore/checkout" class="cart-submit-btn">Checkout</a>
@@ -91,6 +97,8 @@
     </section>
 </main>
 <!-- Main Content - end -->
+	<script src="<c:url value='/template/web/js/jquery-1.11.2.min.js' />"></script>
+	<script src="<c:url value='/template/web/js/cart.js' />"></script>
 	
 	</body>
 	</html>

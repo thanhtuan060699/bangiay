@@ -15,6 +15,8 @@ public class SneakerDTO {
 	
 	private String brandName;
 	
+	private Long sneakerIds[];
+	
 	
 	public String getBase64() {
 		return base64.split(",")[1];
@@ -71,6 +73,14 @@ public class SneakerDTO {
 
 	public void setBrandName(String brandName) {
 		this.brandName = brandName;
+	}
+
+	public Long[] getSneakerIds() {
+		return sneakerIds;
+	}
+
+	public void setSneakerIds(Long sneakerIds[]) {
+		this.sneakerIds = sneakerIds;
 	}
 	
 	

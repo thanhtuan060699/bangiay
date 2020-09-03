@@ -50,7 +50,7 @@
 				<div class="row">
 					<div class="prod-info">
 						<p class="prod-price" data-price="${sneaker.price }">
-							<b class="item_current_price">${sneaker.price} đ</b>
+							<b class="item_current_price">${sneaker.price} VNĐ</b>
 						</p>
 						<p class="prod-qnt">
 							<input value=1 type="number" class="amount">
@@ -60,6 +60,7 @@
 						<p class="prod-addwrap">
 							<div class="prod-add">Add to card</div>
 						</p>
+						<input type="hidden" id="sneakerId" name="sneakerId" value="${sneaker.id}">
 					</div>
 				</div>
 				

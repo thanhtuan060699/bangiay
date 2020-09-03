@@ -53,22 +53,32 @@
     <div class="header-middle">
         <div class="container header-middle-cont">
             <div class="toplogo">
-                <a href="index.html">
+                <a href="/allstore/trangchu">
                     <img src="/template/web/img/logo.png" alt="AllStore - MultiConcept eCommerce Template">
                 </a>
             </div>
             <div class="shop-menu">
                 <ul>
-
-                    <li class="topauth">
-                        <a href="auth.html">
+					<c:if test="${not empty customerSession }">
+					 <li class="topauth">
+                            <i class="fa fa-lock"></i>
+                            <span class="shop-menu-ttl name-user">${customerSession.fullname}
+                            <i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                      
+                    </li>
+					</c:if>
+					<c:if test="${ empty customerSession }">
+					 <li class="topauth">
+                        <a href="/allstore/register">
                             <i class="fa fa-lock"></i>
                             <span class="shop-menu-ttl">Registration</span>
                         </a>
-                        <a href="auth.html">
+                        <a href="/allstore/customer/login">
                             <span class="shop-menu-ttl">Login</span>
                         </a>
                     </li>
+					</c:if>
+                   
 
                     <li>
                         <div class="h-cart">
@@ -81,8 +91,19 @@
                     </li>
 
                 </ul>
+              
             </div>
+            
         </div>
+        <div class="list-profile">
+                <ul>
+                   <a href="/allstore/profile"> <li>Lịch sử mua hàng</li></a>
+                   <a href="/allstore/profile/info"><li>Thông tin cá nhân</li></a>
+                   <a href="/allstore/profile/changepassword"> <li>Đổi mật khẩu</li></a>
+                   <a href="/allstore/customer/logout"> <li>Thoát</li></a>
+                </ul>
+        </div>
+      
     </div>
     <!-- Logo, Shop-menu - end -->
 

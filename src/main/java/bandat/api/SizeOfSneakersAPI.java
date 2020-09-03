@@ -2,9 +2,11 @@ package bandat.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import bandat.dto.SizeOfSneakersDTO;
@@ -17,8 +19,16 @@ public class SizeOfSneakersAPI {
 	SizeOfSneakersService sizeOfSneakersService;
 	
 	@PostMapping
-	public ResponseEntity<Void>  addSize(@RequestBody SizeOfSneakersDTO sizeOfSneakersDTO) {
+	public @ResponseBody Integer addSize(@RequestBody SizeOfSneakersDTO sizeOfSneakersDTO) {
+		if(sizeOfSneakersService.findBySizeAndSneakerId(sizeOfSneakersDTO.getSize(), sizeOfSneakersDTO.getSneakerId())!=null)
+			return 2;
 		sizeOfSneakersService.addSize(sizeOfSneakersDTO);
-		return ResponseEntity.noContent().build();
+		return 1;
+	}
+	
+	@DeleteMapping
+	public @ResponseBody Integer deleteSize(@RequestBody SizeOfSneakersDTO sizeOfSneakersDTO) {
+		sizeOfSneakersService.delete(sizeOfSneakersDTO.getSizeIds());
+		return 1;
 	}
 }

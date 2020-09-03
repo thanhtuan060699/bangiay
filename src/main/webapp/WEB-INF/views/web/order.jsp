@@ -27,12 +27,12 @@
                     <div class="form-group info">
 
                         <div class="col-sm-8">
-                            <input type="text" id="name" class="form-control" name="name" placeholder="Họ và tên">
+                            <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Họ và tên">
                         </div>
                     </div>
                     <div class="form-group info">
                             <div class="col-sm-8">
-                                <input type="text" id="phoneNumber" class="form-control" name="phoneNumber" placeholder="Số điện thoại">
+                                <input type="text" id="phonenumber" class="form-control" name="phonenumber" placeholder="Số điện thoại">
                             </div>
                     </div>
                     <div class="form-group info">
@@ -93,6 +93,7 @@
         </div>
     </div>
 </main>
+	<script src="<c:url value='/template/web/js/jquery-1.11.2.min.js' />"></script>
 	<script src="<c:url value='/template/web/js/order.js' />"></script>
 </body>
 </html>

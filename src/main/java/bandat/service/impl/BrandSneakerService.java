@@ -44,6 +44,7 @@ public class BrandSneakerService implements IBrandSneakerService{
 	@Override
 	public void addBrand(BrandSneakerDTO brandSneakerDTO) {
 		BrandSneakerEntity brandSneakerEntity=brandSneakerConverter.convertToEntity(brandSneakerDTO);
+		brandSneakerEntity.setName(brandSneakerDTO.getName().toUpperCase());
 		brandSneakerRepository.save(brandSneakerEntity);
 		
 	}
@@ -57,7 +58,24 @@ public class BrandSneakerService implements IBrandSneakerService{
 
 	@Override
 	public BrandSneakerDTO findByBrandName(String brandName) {
-		return brandSneakerConverter.convertToDTO(brandSneakerRepository.findByBrandName(brandName));
+		BrandSneakerEntity brandSneakerEntity=brandSneakerRepository.findByNameIgnoreCase(brandName);
+		if(brandSneakerEntity!=null)
+			return brandSneakerConverter.convertToDTO(brandSneakerEntity);
+		else
+		return null;
+	}
+
+	@Override
+	public BrandSneakerDTO findById(Long id) {
+		return brandSneakerConverter.convertToDTO(brandSneakerRepository.findById(id));
+	}
+
+	@Override
+	public void updateBrand(BrandSneakerDTO brandSneakerDTO) {
+		BrandSneakerEntity brandSneakerEntity=brandSneakerConverter.convertToEntity(brandSneakerDTO);
+		brandSneakerEntity.setName(brandSneakerDTO.getName().toUpperCase());
+		brandSneakerRepository.save(brandSneakerEntity);
+		
 	}
 
 }

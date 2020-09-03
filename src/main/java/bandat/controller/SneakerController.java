@@ -28,4 +28,10 @@ public class SneakerController {
 		ModelAndView modelAndView=new ModelAndView("admin/sneaker/edit");
 		return modelAndView;
 	}
+	
+	@RequestMapping(value = "/admin/sneaker/update",method = RequestMethod.GET)
+	public ModelAndView updateSneaker() {
+		ModelAndView modelAndView=new ModelAndView("admin/sneaker/update-sneaker");
+		return modelAndView;
+	}
 }

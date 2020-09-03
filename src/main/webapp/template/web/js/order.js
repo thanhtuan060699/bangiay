@@ -72,3 +72,43 @@ function changeFuncDistrict(){
         }
       });
 }
+document.addEventListener("DOMContentLoaded",function(){
+    var btnOrder=document.getElementById('btnOrder');
+    btnOrder.onclick=function(){
+        var data={};
+	    var formData=$('#formEdit').serializeArray();
+	    $.each(formData,function(index,v){
+		    data[""+v.name+""]=v.value;
+        });
+        var province=document.getElementById('province');
+        var valueProvince=province.options[province.selectedIndex].value;
+        data['province']=valueProvince;
+        var district=document.getElementById('district');
+        var valueDistrict=district.options[district.selectedIndex].value;
+        data['district']=valueDistrict;
+        var ward=document.getElementById('ward');
+        var valueWard=ward.options[ward.selectedIndex].value;
+        data['ward']=valueWard;
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/api/checkout",
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType:"application/json",
+            success: function (response) {
+            	if(response==1){
+            		alert("Bạn đã đặt giày thành công !! Giày sẽ được giao tới bạn sớm nhất !! Cảm ơn bạn");
+            		window.location.href="/allstore/trangchu";
+            	}
+            		
+			},
+			error: function (response) {
+				console.log('failed');
+				console.log(response.sneakerName);
+				console.log(response);
+			}
+        });
+        
+    }
+},false)
+

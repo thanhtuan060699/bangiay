@@ -22,9 +22,9 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Quản lí đất</a>
+								<a href="#">Quản lí thương hiệu giày</a>
 							</li>
-							<li class="active">Danh sách đất</li>
+							
 						</ul><!-- /.breadcrumb -->
 					</div>
 
@@ -33,43 +33,7 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<div class="row">
-									<div class="col-xs-12 col-sm-12">
-											<div class="widget-box">
-												<div class="widget-header">
-													<h4 class="widget-title">Tìm Kiếm</h4>
-
-													<div class="widget-toolbar">
-														<a href="#" data-action="collapse">
-															<i class="ace-icon fa fa-chevron-up"></i>
-														</a>
-													</div>
-												</div>
-
-												<div class="widget-body">
-													<div class="widget-main">
-														<div class="form-horizontal">
-															<form action="${buildingURL}" method="get" id="formSearchBuilding">
-															<div class="form-group">
-																<div class="col-sm-4">
-																	<label for="address">Tên thương hiệu giày</label>
-																	<input type="text" id="name" class="form-control" name="name">
-																</div>
-															</div>
-														
-															<div class="form-group">
-																	<div class="col-sm-8">
-																			<button type="button" class="btn btn-primary" id="btnSearchBuilding">Tìm kiếm</button>
-																	</div>		
-															</div>
-															<input type="hidden" value="LIST" name="action" />
-														</form>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-								</div>
+								
 								<div class="row">
 									<div class="col-xs-12 col-sm-12">
 											<div class="widget-box">
@@ -112,10 +76,8 @@
 								<div class="col-xs-12"> <!--  nut -->
 									
 										<div class="pull-right">
-										<a  href='<c:url value='/admin-land?action=EDIT'/>' class="btn btn-white btn-info btn-bold" data-toggle="tolltip" title="Thêm tòa nhà">
-											<i class="fa fa-plus-circle" aria-hidden="true"></i>
-										</a>
-										<button class="btn btn-white btn-warning btn-bold" data-toggle="tolltip" title="Xóa mảnh đất" id="btnDeleteBuilding">
+										
+										<button class="btn btn-white btn-warning btn-bold" data-toggle="tolltip" title="Xóa thương hiệu" id="btnDeleteBuilding">
 											<i class="fa fa-trash" aria-hidden="true"></i>
 										</button>
 										
@@ -144,21 +106,18 @@
 													<td>
 													<a  href='<c:url value='/admin/sneaker/list?id=${item.id}'/>'> 
 														<button class="btn btn-info btn-xs" data-toggle="tolltip"
-														 title="Nhập giày" onclick="assignmentBuilding(${item.id})" >
+														 title="Nhập giày" >
 															<i class="fa fa-plus-square-o" aria-hidden="true"></i>
 														</button>
 													</a>
 													
-														<a  href='<c:url value='/admin-land?action=UPDATE&id=${item.id}'/>'>
+														<a  href='<c:url value='/admin/brandsneaker/update?id=${item.id}'/>'>
 															<button class="btn btn-info btn-xs" data-toggle="tolltip"
-														 title="Update tòa nhà" onclick="updateBuilding(${item.id})" >
+														 title="Update tòa nhà">
 															<i class="fa fa-refresh" aria-hidden="true"></i>
 															</button>
 														</a>
-														
-												
-														
-														
+						
 													</td>
 												</tr>
 											</c:forEach>			

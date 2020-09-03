@@ -39,7 +39,7 @@
 									<div class="form-group">
 											<label for="ward" class="col-sm-3 control-label no-padding-right" >Mật khẩu cũ</label>
 											<div class="col-sm-8">
-												<input type="password" id="previouspassword" class="form-control" name="previousPassword">
+												<input type="password" id="oldPassword" class="form-control" name="oldPassword">
 											</div>
 									</div>
 									<div class="form-group">

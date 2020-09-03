@@ -25,12 +25,10 @@ public class SneakerEntity extends BaseEntity{
 	private String image;
 	
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="brandSneakerId")
 	private BrandSneakerEntity brandSneakerEntity;
 	
-	@OneToMany(mappedBy = "sneakerEntity")
-	private List<OrderDetailEntity> orderDetailEntities=new ArrayList<OrderDetailEntity>();
 	
 	@OneToMany(mappedBy = "sneakerEntity")
 	private List<SizeOfSneakersEntity> sizeOfSneakerEntities=new ArrayList<SizeOfSneakersEntity>();
@@ -79,13 +77,6 @@ public class SneakerEntity extends BaseEntity{
 		this.name = name;
 	}
 
-	public List<OrderDetailEntity> getOrderDetailEntities() {
-		return orderDetailEntities;
-	}
 
-	public void setOrderDetailEntities(List<OrderDetailEntity> orderDetailEntities) {
-		this.orderDetailEntities = orderDetailEntities;
-	}
-	
 	
 }

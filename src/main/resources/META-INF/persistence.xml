@@ -3,11 +3,11 @@
     <persistence-unit name="persistence-data">
         <class>bandat.entity.UserEntity</class>
         <class>bandat.entity.RoleEntity</class>
-       
+       <class>bandat.entity.SizeOfSneakersEntity</class>
         <class>bandat.entity.BrandSneakerEntity</class>
         <class>bandat.entity.BaseEntity</class>
         <class>bandat.entity.CustomerEntity</class>
-       
+       <class>bandat.entity.OrderDetailEntity</class>
         <class>bandat.entity.OrderSneakerEntity</class>
         <class>bandat.entity.SneakerEntity</class>
     </persistence-unit>

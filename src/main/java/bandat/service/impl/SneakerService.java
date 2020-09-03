@@ -11,6 +11,7 @@ import bandat.dto.SneakerDTO;
 import bandat.entity.BrandSneakerEntity;
 import bandat.entity.SneakerEntity;
 import bandat.repository.BrandSneakerRepository;
+import bandat.repository.SizeOfSneakersRepository;
 import bandat.repository.SneakerRepository;
 import bandat.service.ISneakerService;
 
@@ -22,6 +23,9 @@ public class SneakerService implements ISneakerService {
 	
 	@Autowired
 	BrandSneakerRepository brandSneakerRepository;
+	
+	@Autowired
+	SizeOfSneakersRepository sizeOfSneakersRepository;
 	
 	@Autowired
 	SneakerConverter sneakerConverter;
@@ -46,6 +50,27 @@ public class SneakerService implements ISneakerService {
 		SneakerEntity sneakerEntity=sneakerRepository.findOne(sneakerId);
 		SneakerDTO sneakerDTO=sneakerConverter.convertToDTO(sneakerEntity);
 		return sneakerDTO;
+	}
+
+	@Override
+	public SneakerDTO findByName(String name) {
+		SneakerEntity sneakerEntity=sneakerRepository.findByNameIgnoreCase(name);
+		if(sneakerEntity==null)
+			return null;
+		else
+			return sneakerConverter.convertToDTO(sneakerEntity);
+	}
+
+	@Override
+	public void deleteSneaker(SneakerDTO sneakerDTO) {
+		for(int i=0;i<sneakerDTO.getSneakerIds().length;i++) {
+			SneakerEntity sneakerEntity=sneakerRepository.findOne(sneakerDTO.getSneakerIds()[i]);
+			for(int j=0;j<sneakerEntity.getSizeOfSneakerEntities().size();j++) {
+				sizeOfSneakersRepository.delete(sneakerEntity.getSizeOfSneakerEntities().get(j).getId());
+			}
+			sneakerRepository.delete(sneakerEntity.getId());
+		}
+		
 	}
 
 }

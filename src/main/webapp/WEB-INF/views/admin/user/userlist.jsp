@@ -101,7 +101,7 @@
 										</button>
 										
 										</c:if>
-										<a  href='<c:url value='/admin-user?signal=PASSWORD'/>' class="btn btn-white btn-info btn-bold" data-toggle="tolltip" title="Đổi mật khẩu">
+										<a  href='<c:url value='/admin/user/password'/>' class="btn btn-white btn-info btn-bold" data-toggle="tolltip" title="Đổi mật khẩu">
 											<i class="fa fa-key" aria-hidden="true"></i>
 										</a>
 									</div>
@@ -121,7 +121,7 @@
 												</tr>
 											</thead>
 											<tbody>
-											<c:forEach var="item" items="${user}">
+											<c:forEach var="item" items="${users}">
 											<tr>
 													<td><input type="checkbox" value="${item.id}" id="check_box1"></td>
 													<td>${item.fullname}</td>

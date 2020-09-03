@@ -32,46 +32,18 @@
 							<div class="col-xs-12">
 								<form action="" role="form" class="form-horizontal" id="formEdit">
 									<div class="form-group">
-										<label for="name" class="col-sm-3 control-label no-padding-right">Địa chỉ</label>
+										<label for="name" class="col-sm-3 control-label no-padding-right">Tên thương hiệu giày</label>
 										<div class="col-sm-8">
-											<input type="text" id="address" class="form-control" name="address">
+											<input type="text" id="name" class="form-control" name="name" value="${brandUpdate.name }">
 										</div>
 									</div>
-									<div class="form-group">
-											<label for="ward" class="col-sm-3 control-label no-padding-right" >Chiều dài</label>
-											<div class="col-sm-8">
-												<input type="number" id="length" class="form-control" name="length">
-											</div>
-									</div>
-									<div class="form-group">
-											<label for="street" class="col-sm-3 control-label no-padding-right">Chiều rộng</label>
-											<div class="col-sm-8">
-												<input type="number" id="width" class="form-control" name="width">
-											</div>
-									</div>
-									<div class="form-group">
-											<label for="structure" class="col-sm-3 control-label no-padding-right">Hướng</label>
-											<div class="col-sm-8">
-												<input type="text" id="direction" class="form-control" name="direction">
-											</div>
-									</div>
-									<div class="form-group">
-											<label for="numberOfBasement" class="col-sm-3 control-label no-padding-right">Giá cả</label>
-											<div class="col-sm-8">
-												<input type="text" id="cost" class="form-control" name="cost">
-											</div>
-									</div>
-									<div class="form-group">
-											<label for="numberOfBasement" class="col-sm-3 control-label no-padding-right">Ảnh</label>
-											<div class="col-sm-8">
-												<input type="file" id="image" class="form-control" name="image">
-											</div>
-									</div>
+			
 									<div class="form-group">
 											<label class="col-sm-3 control-label no-padding-right"></label>
 											<div class="col-sm-8">
-											<button type="button" class="btn btn-primary" id="btnUpdateBuilding">Update đất</button>
-											<button type="button" class="btn btn-primary">Hủy</button>
+											<button type="button" class="btn btn-primary" id="btnUpdateBrand">Update thương 
+											hiệu giày </button>
+								
 											</div>
 									</div>
 								</form>
@@ -81,6 +53,8 @@
 			</div><!-- /.page-content -->
 		</div>
 		</div>
+		<script src="<c:url value='/template/admin/assets/js/jquery.2.1.1.min.js' />"></script>
+		<script src="<c:url value='/template/admin/js/brandsneaker-update.js' />"></script>
 	</body>
 
 	</html>

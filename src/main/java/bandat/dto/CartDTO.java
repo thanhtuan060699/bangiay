@@ -19,6 +19,8 @@ public class CartDTO {
 	
 	private Integer amountMax;
 	
+	private Long sneakerId;
+	
 	public String getSneakerName() {
 		return sneakerName;
 	}
@@ -89,6 +91,14 @@ public class CartDTO {
 
 	public void setAmountMax(Integer amountMax) {
 		this.amountMax = amountMax;
+	}
+
+	public Long getSneakerId() {
+		return sneakerId;
+	}
+
+	public void setSneakerId(Long sneakerId) {
+		this.sneakerId = sneakerId;
 	}
 	
 	

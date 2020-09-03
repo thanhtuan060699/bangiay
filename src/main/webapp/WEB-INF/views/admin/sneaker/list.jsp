@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
  pageEncoding="UTF-8"%>
  <%@include file="/common/taglib.jsp"%>
- <c:url var="buildingURL" value="/admin-land"/>
  <c:url var="userAPI" value="/api-user"/>
 	<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 	<html>
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Danh sách tòa nhà</title>
+		<title>Danh sách giày</title>
 	</head>
 
 	<body>
@@ -22,9 +21,9 @@
 						<ul class="breadcrumb">
 							<li>
 								<i class="ace-icon fa fa-home home-icon"></i>
-								<a href="#">Quản lí đất</a>
+								<a href="#">Quản lí thương hiệu giày</a>
 							</li>
-							<li class="active">Danh sách đất</li>
+							<li class="active">Danh sách giày</li>
 						</ul><!-- /.breadcrumb -->
 					</div>
 
@@ -106,7 +105,7 @@
 											<i class="fa fa-plus-circle" aria-hidden="true"></i>
 										</a>
 										
-										<button class="btn btn-white btn-warning btn-bold" data-toggle="tolltip" title="Xóa mảnh đất" id="btnDeleteBuilding">
+										<button class="btn btn-white btn-warning btn-bold" data-toggle="tolltip" title="Xóa giày" id="btnDeleteSneaker">
 											<i class="fa fa-trash" aria-hidden="true"></i>
 										</button>
 										
@@ -115,7 +114,7 @@
 								</div>
 					
 								<div class="col-xs-12">
-										<table id="buildingList" class="table table-striped table-bordered table-hover">
+										<table id="sneakerList" class="table table-striped table-bordered table-hover">
 											<thead>
 												<tr>
 													<th >
@@ -143,9 +142,9 @@
 														</button>
 													</a>
 													
-														<a  href='<c:url value='/admin-land?action=UPDATE&id=${item.id}'/>'>
+														<a  href='<c:url value='/admin/sneaker/update?id=${item.id}'/>'>
 															<button class="btn btn-info btn-xs" data-toggle="tolltip"
-														 title="Update tòa nhà" onclick="updateBuilding(${item.id})" >
+														 title="Cập nhật giày" >
 															<i class="fa fa-refresh" aria-hidden="true"></i>
 															</button>
 														</a>
@@ -166,36 +165,25 @@
 					</div><!-- /.page-content -->
 				</div>
 		</div>
-		<div id="assignmentBuildingModal" class="modal fade" role="dialog">
+		<div id="confirmDeleteModal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 		  
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
 				  <button type="button" class="close" data-dismiss="modal">&times;</button>
-				  <h4 class="modal-title">Danh sách nhân viên</h4>
+				  <h4 class="modal-title" style="text-align: center;">Bạn có muốn xóa hay không ?</h4>
 				</div>
-				<div class="modal-body">
-						<table class="table" id="staffList">
-								<thead>
-								  <tr>
-									<th>Chọn nhân viên</th>
-									<th>Tên nhân viên</th>
-								  </tr>
-								</thead>
-								<tbody>
-								 
-								</tbody>
-					    </table>
-							  <input type="hidden" id="buildingId" name="buildingId" value="">
-				</div>
-				<div class="modal-footer">
-				  <button type="button" class="btn btn-default" data-dismiss="modal" id="btnAssignBuilding">Giao tòa nhà</button>
-				  <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+				
+				<div class="modal-footer" style="text-align: center;">
+				  <button type="button" class="btn btn-danger" data-dismiss="modal" id="btnConfirmDeleteSneaker">Xóa</button>
+				  <button type="button" class="btn btn-info" data-dismiss="modal">Hủy</button>
 				</div>
 			  </div>
 			</div>
 		</div>
+	<script src="<c:url value='/template/admin/assets/js/jquery.2.1.1.min.js' />"></script>
+ 	<script src="<c:url value='/template/admin/js/sneaker-delete.js' />"></script>
 	</body>
-
+	
 	</html>

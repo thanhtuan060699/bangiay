@@ -8,6 +8,8 @@ public class SizeOfSneakersDTO {
 	private Integer amount;
 	
 	private Long sneakerId;
+	
+	private Long sizeIds[];
 
 	public Long getId() {
 		return id;
@@ -39,6 +41,14 @@ public class SizeOfSneakersDTO {
 
 	public void setSneakerId(Long sneakerId) {
 		this.sneakerId = sneakerId;
+	}
+
+	public Long[] getSizeIds() {
+		return sizeIds;
+	}
+
+	public void setSizeIds(Long sizeIds[]) {
+		this.sizeIds = sizeIds;
 	}
 	
 	

@@ -48,13 +48,14 @@
                         <i class="menu-icon fa fa-caret-right"></i>
                         Quản lý thương hiệu giày
                     </a>
-                    <a href='<c:url value='/admin-customer?action=LIST' />'>
-                        <i class="menu-icon fa fa-caret-right"></i>
-                        Quản lý khách hàng
-                    </a>
+          
                     <a href='<c:url value='/admin/user/list' />'>
                         <i class="menu-icon fa fa-caret-right"></i>
                         Quản lý nhân sự
+                    </a>
+                     <a href='<c:url value='/admin/order/list' />'>
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Quản lý đơn hàng
                     </a>
                     <b class="arrow"></b>
                 </li>

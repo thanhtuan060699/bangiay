@@ -40,4 +40,22 @@ public class SizeOfSneakersService implements ISizeOfSneakersService {
 		return  sizeOfSneakersEntities.stream().map(item -> sizeOfSneakersConverter.convertToDTO(item)).collect(Collectors.toList());
 	}
 
+	@Override
+	public SizeOfSneakersEntity findBySizeAndSneakerId(Double size, Long sneakerId) {
+		SneakerEntity sneakerEntity=sneakerRepository.findOne(sneakerId);
+		SizeOfSneakersEntity sizeOfSneakersEntity=sizeOfSneakersRepository.findBySizeAndSneakerEntity(size, sneakerEntity);
+		if(sizeOfSneakersEntity==null)
+			return null;
+		else
+			return sizeOfSneakersEntity;
+	}
+
+	@Override
+	public void delete(Long[] sizeIds) {
+		for(Long id:sizeIds) {
+			sizeOfSneakersRepository.delete(id);
+		}
+		
+	}
+
 }

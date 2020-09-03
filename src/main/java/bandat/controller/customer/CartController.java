@@ -5,11 +5,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -23,13 +25,25 @@ public class CartController {
 	IBrandSneakerService brandSneakerService;
 	
 	@RequestMapping(value = "/allstore/cart",method = RequestMethod.GET)
-	public ModelAndView cartCustomer(HttpServletRequest request) {
+	public ModelAndView cartCustomer(HttpServletRequest request,@RequestParam(required = false) Long sneakerId ) {
 		ModelAndView modelAndView=new ModelAndView("web/cart");
 		List<CartDTO> cartDTOs=(List<CartDTO>) SessionUtil.getInstance().getValue(request, "carts");
 		modelAndView.addObject("carts", cartDTOs);
 		modelAndView.addObject("brands", brandSneakerService.findAllNotTotal());
 		modelAndView.addObject("amountOfCart",SessionUtil.getInstance().getValue(request, "amounts"));
+		if(sneakerId!=null) {
+			modelAndView.addObject("repeatId",sneakerId);
+		}
+		modelAndView.addObject("totalPrice", totalPrice(cartDTOs));
 		return modelAndView;
+	}
+	public Long totalPrice(List<CartDTO> cartDTOs) {
+		long price =0;
+		for(CartDTO cartDTO:cartDTOs) {
+			price=price+cartDTO.getAmount()*cartDTO.getPrice();
+			
+		}
+		return price;
 	}
 	
 	@RequestMapping(value = "/allstore/cart",method = RequestMethod.POST)
@@ -44,17 +58,26 @@ public class CartController {
 			cartDTO.setIdCard(1);
 			SessionUtil.getInstance().putValue(request, "carts", cartDTOs);
 			SessionUtil.getInstance().putValue(request, "amounts", getAmountsOfSneakers(cartDTOs));
+			return 1;
 		}
  		else {
  			List<CartDTO> cartDTOs=(List<CartDTO>) SessionUtil.getInstance().getValue(request, "carts");
+ 			for(CartDTO cartDTO2:cartDTOs) {
+ 				if(cartDTO2.getSneakerId()==cartDTO.getSneakerId()) {
+ 					return 3;
+ 				}
+ 			}
  			Integer id=cartDTOs.get(cartDTOs.size()-1).getIdCard()+1;
  			cartDTO.setIdCard(id);
  			cartDTOs.add(cartDTO);
  			SessionUtil.getInstance().putValue(request, "amounts", getAmountsOfSneakers(cartDTOs));
  			SessionUtil.getInstance().putValue(request, "carts", cartDTOs);
  		}
+ 		
 		return 1;
 	}
+	
+	
 	public Integer getAmountsOfSneakers(List<CartDTO> cartDTOs) {
 		Integer total=0;
 		for(CartDTO cartDTO:cartDTOs) {

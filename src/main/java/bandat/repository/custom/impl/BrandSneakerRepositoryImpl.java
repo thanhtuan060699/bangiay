@@ -41,7 +41,7 @@ public class BrandSneakerRepositoryImpl implements BrandSneakerRepositoryCustom 
 
 	@Override
 	public BrandSneakerEntity findByBrandName(String brandName) {
-		String sql="select * from brandsneaker where name="+brandName;
+		String sql="select * from brandsneaker where name='"+brandName+"'";
 		Query query=entityManager.createNativeQuery(sql,BrandSneakerEntity.class);
 		return (BrandSneakerEntity) query.getResultList().get(0);
 	}

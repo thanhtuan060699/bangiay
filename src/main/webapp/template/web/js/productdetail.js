@@ -69,6 +69,7 @@ document.addEventListener("DOMContentLoaded",function(){
         }
         var image=document.getElementsByClassName('prod-slider-car')[0].getAttribute("data-image");
         data["nameImage"]=image;
+        data["sneakerId"]=parseInt(document.getElementById('sneakerId').getAttribute('value'));
         $.ajax({
             type: "POST",
             url: "http://localhost:8080/allstore/cart",
@@ -83,6 +84,10 @@ document.addEventListener("DOMContentLoaded",function(){
                 }
                 if(response==2){
                 	alert("Bạn chưa chọn size! Làm ơn chọn size");
+                }
+                if(response==3){
+                	alert("Đôi giày này đã có trong giỏ hàng !!! Bạn có thể sửa số lượng trong giỏ");
+                	window.location.href="/allstore/cart?sneakerId="+parseInt(document.getElementById('sneakerId').getAttribute('value'));
                 }
             },
             error: function (response) {

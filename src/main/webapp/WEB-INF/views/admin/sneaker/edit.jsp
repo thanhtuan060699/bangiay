@@ -30,7 +30,7 @@
 
 						<div class="row">
 							<div class="col-xs-12">
-								<form action=""  role="form" class="form-horizontal" id="formEdit"
+								<form action=""  class="form-horizontal" id="formEdit"
 								enctype="multipart/form-data" >
 									<div class="form-group">
 										<label for="name" class="col-sm-3 control-label no-padding-right">Tên giày</label>
@@ -56,7 +56,7 @@
 											<div class="col-sm-8">
 										
 											<button type="button" class="btn btn-primary">Hủy</button>
-											<input type="submit" class="btn btn-primary"  id="btnAddSneaker" value="Thêm giày"> 
+											<button type="button" class="btn btn-primary"  id="btnAddSneaker" > Thêm giày</button>
 											</div>
 									</div>
 								</form>

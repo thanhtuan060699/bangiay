@@ -10,4 +10,6 @@ public interface IBrandSneakerService {
 	public void addBrand(BrandSneakerDTO brandSneakerDTO);
 	public BrandSneakerDTO findBrandBySneakerId(Long sneakerId);
 	public BrandSneakerDTO findByBrandName(String brandName);
+	public BrandSneakerDTO findById(Long id);
+	public void updateBrand(BrandSneakerDTO brandSneakerDTO);
 }
