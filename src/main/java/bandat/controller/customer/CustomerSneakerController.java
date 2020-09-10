@@ -30,6 +30,9 @@ public class CustomerSneakerController {
 	ModelAndView sneakerCustomer(@RequestParam(name = "id") Long brandId,HttpServletRequest request) {
 		ModelAndView modelAndView=new ModelAndView("web/sneakercustomer");
 		List<SneakerDTO> sneakerDTOs=sneakerService.listSneakerByBrand(brandId);
+		if(sneakerDTOs.size()==0) {
+			modelAndView.addObject("listempty", 1);
+		}
 		modelAndView.addObject("brands", brandSneakerService.findAllNotTotal());
 		modelAndView.addObject("sneakers",sneakerDTOs );
 		modelAndView.addObject("amountOfCart",SessionUtil.getInstance().getValue(request, "amounts"));

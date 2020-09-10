@@ -102,9 +102,7 @@
 										<button class="btn btn-white btn-warning btn-bold" data-toggle="tolltip" title="Xóa đơn hàng" id="btnDeleteOrder">
 											<i class="fa fa-trash" aria-hidden="true"></i>
 										</button>
-										<a  href='<c:url value='/admin-user?signal=PASSWORD'/>' class="btn btn-white btn-info btn-bold" data-toggle="tolltip" title="Đổi mật khẩu">
-											<i class="fa fa-key" aria-hidden="true"></i>
-										</a>
+									
 									</div>
 									
 								</div>

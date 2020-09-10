@@ -68,7 +68,8 @@ public class CheckOutAPI {
 			}
 		});
 		thread.start();
-		
+		SessionUtil.getInstance().removeValue(request, "carts");
+		SessionUtil.getInstance().removeValue(request, "amounts");
 		return 1;
 	}
 }

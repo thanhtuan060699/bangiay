@@ -12,4 +12,5 @@ public interface IBrandSneakerService {
 	public BrandSneakerDTO findByBrandName(String brandName);
 	public BrandSneakerDTO findById(Long id);
 	public void updateBrand(BrandSneakerDTO brandSneakerDTO);
+	public void deleteBrand(BrandSneakerDTO brandSneakerDTO);
 }

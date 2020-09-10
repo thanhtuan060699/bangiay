@@ -16,11 +16,19 @@ import bandat.service.impl.SizeOfSneakersService;
 public class SizeController {
 	@Autowired
 	SizeOfSneakersService sizeOfSneakersService;
+	
 	@RequestMapping(value="/admin/sneaker/size/list",method = RequestMethod.GET)
-	public ModelAndView listSneaker(@RequestParam("id") Long sneakerId) {
+	public ModelAndView listSize(@RequestParam("id") Long sneakerId) {
 		ModelAndView modelAndView=new ModelAndView("admin/size/sizelist");
 		List<SizeOfSneakersDTO>  dtos=sizeOfSneakersService.findAllBySneakerId(sneakerId);
 		modelAndView.addObject("sizes",dtos );
+		return modelAndView;
+	}
+	
+	@RequestMapping(value="/admin/sneaker/size/update",method = RequestMethod.GET)
+	public ModelAndView updateSize(@RequestParam("id") Long id) {
+		ModelAndView modelAndView=new ModelAndView("admin/size/sizeupdate");
+		modelAndView.addObject("sizeUpdate", sizeOfSneakersService.findBySizId(id));
 		return modelAndView;
 	}
 }

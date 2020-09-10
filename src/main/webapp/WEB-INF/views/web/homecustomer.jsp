@@ -21,7 +21,7 @@
             <div class="posts-list">
                 <div class="posts-i">
                     <a class="posts-i-img" href="post.html">
-                        <span style="background: url(http://placehold.it/354x236)"></span>
+                        <span style="background: url(/usr/var/thumbnail/tai-xuong-1.png)"></span>
                     </a>
                     <time class="posts-i-date" datetime="2016-11-09 00:00:00"><span>30</span> Jan</time>
                     <div class="posts-i-info">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="posts-i">
                     <a class="posts-i-img" href="post.html">
-                        <span style="background: url(http://placehold.it/354x236)"></span>
+                        <span style="background: url(/usr/var/thumbnail/tai-xuong-2.png)"></span>
                     </a>
                     <time class="posts-i-date" datetime="2016-11-09 00:00:00"><span>29</span> Jan</time>
                     <div class="posts-i-info">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="posts-i">
                     <a class="posts-i-img" href="post.html">
-                        <span style="background: url(http://placehold.it/354x236)"></span>
+                        <span style="background: url(/usr/var/thumbnail/nike-cortez-basic-sl-904764-102-0.jpg)"></span>
                     </a>
                     <time class="posts-i-date" datetime="2016-11-09 00:00:00"><span>25</span> Jan</time>
                     <div class="posts-i-info">
@@ -60,7 +60,7 @@
 
 
         <!-- Testimonials -->
-      
+     
         <!-- Quick View Product - start -->
       
     </section>

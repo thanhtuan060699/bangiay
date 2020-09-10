@@ -98,7 +98,7 @@
         <div class="list-profile">
                 <ul>
                    <a href="/allstore/profile"> <li>Lịch sử mua hàng</li></a>
-                   <a href="/allstore/profile/info"><li>Thông tin cá nhân</li></a>
+                   <a href="/allstore/profile/updateinfo"><li>Thông tin cá nhân</li></a>
                    <a href="/allstore/profile/changepassword"> <li>Đổi mật khẩu</li></a>
                    <a href="/allstore/customer/logout"> <li>Thoát</li></a>
                 </ul>
@@ -114,7 +114,7 @@
 
                 <!-- Catalog menu - start -->
                 <div class="topcatalog">
-                    <a class="topcatalog-btn" href="catalog-list.html">Home</a>
+                    <a class="topcatalog-btn" href="/allstore/trangchu">Home</a>
                 </div>
                 <!-- Catalog menu - end -->
 

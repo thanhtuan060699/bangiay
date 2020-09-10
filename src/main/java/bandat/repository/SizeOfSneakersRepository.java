@@ -8,4 +8,5 @@ import bandat.repository.custom.SizeOfSneakersRepositoryCustom;
 
 public interface SizeOfSneakersRepository extends JpaRepository<SizeOfSneakersEntity, Long>,SizeOfSneakersRepositoryCustom {
 	SizeOfSneakersEntity findBySizeAndSneakerEntity(Double size,SneakerEntity sneakerEntity);
+	SizeOfSneakersEntity findById(Long id);
 }

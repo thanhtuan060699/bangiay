@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import bandat.dto.CartDTO;
+import bandat.dto.CustomerDTO;
 import bandat.service.impl.BrandSneakerService;
 import bandat.util.SessionUtil;
 
@@ -28,10 +29,11 @@ public class OrderController {
 	public ModelAndView orderCustomer(HttpServletRequest request) {
 		ModelAndView modelAndView=new ModelAndView("web/order");
 		List<CartDTO> cartDTOs=(List<CartDTO>) SessionUtil.getInstance().getValue(request, "carts");
+		CustomerDTO customerDTO=(CustomerDTO) SessionUtil.getInstance().getValue(request, "customerSession");
 		modelAndView.addObject("amountOfCart",SessionUtil.getInstance().getValue(request, "amounts"));
 		modelAndView.addObject("brands", brandSneakerService.findAllNotTotal());
 		modelAndView.addObject("sneakersCart",cartDTOs );
-	
+		modelAndView.addObject("customer", customerDTO);
 		return modelAndView;
 	}
 	

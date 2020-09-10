@@ -79,8 +79,14 @@
             <%}} %>
             
         </div>
+        <c:if test="${not empty listempty }">
+        <div >
+        	<p style="font-size: 20px;font-weight: bold;text-align: center;">Hiện tại chưa có sản phẩm</p>
+        	<br/>
+        	<br/>
+        </div>
 
-
+		</c:if>
         <!-- Testimonials -->
       
         <!-- Quick View Product - start -->

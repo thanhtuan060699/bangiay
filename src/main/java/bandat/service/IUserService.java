@@ -8,4 +8,6 @@ public interface IUserService {
 	public List<UserDTO> findAll();
 	public UserDTO findByUserNameAndStatus(String username,Integer status);
 	public void changePassword(UserDTO userDTO,String newPassword);
+	public boolean sameUserName(UserDTO userDTO);
+	public void addUser(UserDTO userDTO);
 }

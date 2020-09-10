@@ -34,7 +34,10 @@ public class CartController {
 		if(sneakerId!=null) {
 			modelAndView.addObject("repeatId",sneakerId);
 		}
-		modelAndView.addObject("totalPrice", totalPrice(cartDTOs));
+		if(cartDTOs!=null) {
+			modelAndView.addObject("totalPrice", totalPrice(cartDTOs));
+		}
+		
 		return modelAndView;
 	}
 	public Long totalPrice(List<CartDTO> cartDTOs) {

@@ -7,21 +7,25 @@ $(btnAddUser).click(function(){
 	var role=$('#role').val();
 	$.ajax({
 		type: "POST",
-		url: "http://localhost:8080/homework/api-user",
+		url: "http://localhost:8080/api/admin/user",
 		data: JSON.stringify(data),
 		dataType: "json",
 		contentType:"application/json",
 
 		success: function (response) {
-			if(response=="username"){
-				window.location.href="/homework/admin-user?signal=EDIT&message=username";
+			if(response==1){
+				var message=document.getElementsByClassName('message')[0];
+				message.innerHTML='<div class="alert alert-warning"> Username của bạn đã tồn tại !!! Vui lòng nhập username khác</div> ';
 			}
-			else if(response==2){
-				window.location.href="/homework/admin-user?signal=EDIT&message=confirmpassword";
+			if(response==2)
+			{
+				alert('Đã tạo tài khoản thành công');
 			}
-			else if(response==3){
-				window.location.href="/homework/admin-user?action=LIST"
+			if(response==3){
+				var message=document.getElementsByClassName('message')[0];
+				message.innerHTML='<div class="alert alert-warning"> Mật khẩu xác nhận không chính xác !!! Vui lòng nhập lại</div> ';
 			}
+			
 		},
 		error: function (response) {
 			console.log('failed');

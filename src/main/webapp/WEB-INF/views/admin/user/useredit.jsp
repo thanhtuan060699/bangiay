@@ -27,11 +27,15 @@
 						</ul><!-- /.breadcrumb -->
 					</div>
 					<div class="page-content">
-						<c:if test="${not empty message }">
-							<div class="alert alert-danger">
-								${message}
+						<div class="row">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-8">
+								<div class="message">
+									
+								</div>
 							</div>
-						</c:if>
+						</div>
+						
 						<div class="row">
 							<div class="col-xs-12">
 								<form action="" role="form" class="form-horizontal" id="formEdit">

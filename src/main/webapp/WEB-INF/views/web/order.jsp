@@ -20,24 +20,28 @@
                 <form action="" role="form" class="form-horizontal" id="formEdit">
                     <div class="form-group info">
                         <div class="col-sm-8">
-                            <input type="text" id="email" class="form-control" name="email" placeholder="Email">
+                            <input type="text" id="email" class="form-control" name="email" placeholder="Email"
+                            value="${customer.email}">
                         </div>
                     </div>
                     
                     <div class="form-group info">
 
                         <div class="col-sm-8">
-                            <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Họ và tên">
+                            <input type="text" id="fullname" class="form-control" name="fullname" placeholder="Họ và tên"
+                             value="${customer.fullname }">
                         </div>
                     </div>
                     <div class="form-group info">
                             <div class="col-sm-8">
-                                <input type="text" id="phonenumber" class="form-control" name="phonenumber" placeholder="Số điện thoại">
+                                <input type="text" id="phonenumber" class="form-control" name="phonenumber" placeholder="Số điện thoại"
+                                 value="${customer.phonenumber }">
                             </div>
                     </div>
                     <div class="form-group info">
                             <div class="col-sm-8">
-                                <input type="text" id="address" class="form-control" name="address" placeholder="Địa chỉ">
+                                <input type="text" id="address" class="form-control" name="address" placeholder="Địa chỉ"
+                                value="${customer.address}">
                             </div>
                     </div>
 

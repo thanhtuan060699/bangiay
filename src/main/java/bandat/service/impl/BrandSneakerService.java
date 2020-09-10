@@ -5,26 +5,32 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import bandat.constant.SystemConstant;
 import bandat.converter.BrandSneakerConverter;
 import bandat.dto.BrandSneakerDTO;
 import bandat.entity.BrandSneakerEntity;
 import bandat.repository.BrandSneakerRepository;
+import bandat.repository.SneakerRepository;
 import bandat.service.IBrandSneakerService;
 
-@Service
+@Component
 public class BrandSneakerService implements IBrandSneakerService{
 	
 	@Autowired
 	private BrandSneakerRepository brandSneakerRepository;
 	
 	@Autowired
+	private SneakerRepository sneakerRepository;
+	
+	@Autowired
 	private BrandSneakerConverter brandSneakerConverter;
 	
 	@Override
 	public List<BrandSneakerDTO> findAll() {
-		List<BrandSneakerEntity> brandSneakerEntities= brandSneakerRepository.findAll();
+		List<BrandSneakerEntity> brandSneakerEntities= brandSneakerRepository.findByStatus(1);
 		List<BrandSneakerDTO> brandSneakerDTOs=new ArrayList<BrandSneakerDTO>();
 		for(BrandSneakerEntity brandSneakerEntity:brandSneakerEntities) {
 			BrandSneakerDTO  brandSneakerDTO=brandSneakerConverter.convertToDTO(brandSneakerEntity);
@@ -43,9 +49,18 @@ public class BrandSneakerService implements IBrandSneakerService{
 
 	@Override
 	public void addBrand(BrandSneakerDTO brandSneakerDTO) {
-		BrandSneakerEntity brandSneakerEntity=brandSneakerConverter.convertToEntity(brandSneakerDTO);
-		brandSneakerEntity.setName(brandSneakerDTO.getName().toUpperCase());
-		brandSneakerRepository.save(brandSneakerEntity);
+		BrandSneakerEntity brandSneaker=brandSneakerRepository.findByNameIgnoreCaseAndStatus(brandSneakerDTO.getName(),SystemConstant.INACTIVE_STATUS);
+		if(brandSneaker!=null)
+		{
+			brandSneaker.setStatus(SystemConstant.ACTIVE_STATUS);
+			brandSneakerRepository.save(brandSneaker);
+		}else {
+			BrandSneakerEntity brandSneakerEntity=brandSneakerConverter.convertToEntity(brandSneakerDTO);
+			brandSneakerEntity.setName(brandSneakerDTO.getName().toUpperCase());
+			brandSneakerEntity.setStatus(SystemConstant.ACTIVE_STATUS);
+			brandSneakerRepository.save(brandSneakerEntity);
+		}
+		
 		
 	}
 
@@ -58,7 +73,7 @@ public class BrandSneakerService implements IBrandSneakerService{
 
 	@Override
 	public BrandSneakerDTO findByBrandName(String brandName) {
-		BrandSneakerEntity brandSneakerEntity=brandSneakerRepository.findByNameIgnoreCase(brandName);
+		BrandSneakerEntity brandSneakerEntity=brandSneakerRepository.findByNameIgnoreCaseAndStatus(brandName,SystemConstant.ACTIVE_STATUS);
 		if(brandSneakerEntity!=null)
 			return brandSneakerConverter.convertToDTO(brandSneakerEntity);
 		else
@@ -75,6 +90,16 @@ public class BrandSneakerService implements IBrandSneakerService{
 		BrandSneakerEntity brandSneakerEntity=brandSneakerConverter.convertToEntity(brandSneakerDTO);
 		brandSneakerEntity.setName(brandSneakerDTO.getName().toUpperCase());
 		brandSneakerRepository.save(brandSneakerEntity);
+		
+	}
+
+	@Override
+	public void deleteBrand(BrandSneakerDTO brandSneakerDTO) {
+		for(int i=0;i<brandSneakerDTO.getBrandIds().length;i++) {
+			BrandSneakerEntity brandSneakerEntity=brandSneakerRepository.findById(brandSneakerDTO.getBrandIds()[i]);
+			brandSneakerEntity.setStatus(SystemConstant.INACTIVE_STATUS);
+			brandSneakerRepository.save(brandSneakerEntity);
+		}
 		
 	}
 

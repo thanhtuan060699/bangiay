@@ -24,28 +24,32 @@
                             <div class="col-sm-2 info-detail">Họ và tên </div>
                             <div class="col-sm-5 info-detail">${customerInfo.fullname }</div>
                             <div class="col-sm-2 info-detail">Số điện thoại</div>
-                            <div class="col-sm-3 info-detail"></div>
+                            <div class="col-sm-3 info-detail">${customerInfo.phonenumber}</div>
     
                         </div>
                         <div class="row">
                             <div class="col-sm-2 info-detail">Địa chỉ</div>
-                            <div class="col-sm-5 info-detail">Số 5 Kiệt 1 Đường Quảng Tế</div>
+                            <div class="col-sm-5 info-detail">${customerInfo.address }/div>
                             <div class="col-sm-2 info-detail">Tỉnh thành</div>
-                            <div class="col-sm-3 info-detail">Thừa Thiên Huế</div>
+                            <div class="col-sm-3 info-detail">${customerInfo.province}</div>
                         </div>
                         <div class="row">
                             <div class="col-sm-2 info-detail">Email</div>
-                            <div class="col-sm-10 info-detail">nguyenthanhhlal123@gmail.com</div>
+                            <div class="col-sm-10 info-detail">${customerInfo.email }</div>
                         </div>
                         <div class="row">
                             
                             <div class="col-sm-2 info-detail">Quận Huyện</div>
-                            <div class="col-sm-4 info-detail">A Lưới</div>
+                            <div class="col-sm-4 info-detail">${customerInfo.district }</div>
                             <div class="col-sm-2 info-detail">Phường Xã</div>
-                            <div class="col-sm-4 info-detail">Trường An</div>
+                            <div class="col-sm-4 info-detail">${customerInfo.ward }</div>
                         </div>
                         <div class="row ">
-                        <button type="button" class="btn btn-info cus-update">Update thông tin</button>
+                         <a href="/allstore/profile/updateinfo">
+                        <button type="button" class="btn btn-info cus-update">
+                        	 Update thông tin
+                        </button>
+                         </a>
                         </div>
                     </div>
                     </div>

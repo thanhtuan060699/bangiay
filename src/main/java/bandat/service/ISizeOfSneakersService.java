@@ -10,4 +10,5 @@ public interface ISizeOfSneakersService {
 	public List<SizeOfSneakersDTO> findAllBySneakerId(Long sneakerId);
 	public SizeOfSneakersEntity findBySizeAndSneakerId(Double size,Long sneakerId);
 	public void delete(Long sizeIds[]);
+	public SizeOfSneakersDTO findBySizId(Long id);
 }

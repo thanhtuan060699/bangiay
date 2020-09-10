@@ -28,4 +28,42 @@ $('#btnAddBrand').click(function(){
 						}
 					});
 					
-				});
+});
+$('#btnDeleteBrandSneaker').click(function(){
+	var sizeIds = $('#brandList').find(
+		'tbody input[type=checkbox]:checked').map(function() {
+	return $(this).val();
+	}).get();
+	if(sizeIds.length!=0){
+		$('#deleteBrandSneakerModal').modal();
+	}
+})
+
+$('#btnDeleteBrandCofirm').click(function(){
+	var data = {};
+	var brandIds = $('#brandList').find(
+			'tbody input[type=checkbox]:checked').map(function() {
+		return $(this).val();
+	}).get();
+	data['brandIds'] = brandIds;
+	deleteBrand(data);
+})
+function deleteBrand(data) {
+	
+	$.ajax({
+		type : "DELETE",
+		url : "http://localhost:8080/api/brandsneaker",
+		data : JSON.stringify(data),
+		dataType : "json",
+		contentType : "application/json",
+		success : function(response) {
+			if(response==1){
+				alert("Bạn đã xóa thành công");
+				location.reload(true);
+			}
+		},
+		
+	});
+	
+	
+}

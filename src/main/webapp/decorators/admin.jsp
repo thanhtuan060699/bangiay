@@ -65,6 +65,7 @@
 	<script src="<c:url value='/template/admin/js/brandsneaker-list.js' />"></script>
 	<script src="<c:url value='/template/admin/js/sizesneaker-list.js' />"></script>
 	<script src="<c:url value='/template/admin/js/u-list.js' />"></script>
+	<script src="<c:url value='/template/admin/js/u-save.js' />"></script>
 	<script src="<c:url value='/template/admin/js/u-update.js' />"></script>
 	<script src="<c:url value='/template/admin/js/order-list.js' />"></script>
 	<script src="<c:url value='/template/admin/js/u-password.js' />"></script>

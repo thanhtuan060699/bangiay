@@ -77,7 +77,7 @@
 									
 										<div class="pull-right">
 										
-										<button class="btn btn-white btn-warning btn-bold" data-toggle="tolltip" title="Xóa thương hiệu" id="btnDeleteBuilding">
+										<button class="btn btn-white btn-warning btn-bold" data-toggle="tolltip" title="Xóa thương hiệu" id="btnDeleteBrandSneaker">
 											<i class="fa fa-trash" aria-hidden="true"></i>
 										</button>
 										
@@ -86,7 +86,7 @@
 								</div>
 					
 								<div class="col-xs-12">
-										<table id="buildingList" class="table table-striped table-bordered table-hover">
+										<table id="brandList" class="table table-striped table-bordered table-hover">
 											<thead>
 												<tr>
 													<th >
@@ -114,7 +114,7 @@
 														<a  href='<c:url value='/admin/brandsneaker/update?id=${item.id}'/>'>
 															<button class="btn btn-info btn-xs" data-toggle="tolltip"
 														 title="Update tòa nhà">
-															<i class="fa fa-refresh" aria-hidden="true"></i>
+															<i class="fa fa-pencil" aria-hidden="true"></i>
 															</button>
 														</a>
 						
@@ -131,32 +131,19 @@
 					</div><!-- /.page-content -->
 				</div>
 		</div>
-		<div id="assignmentBuildingModal" class="modal fade" role="dialog">
+		<div id="deleteBrandSneakerModal" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 		  
 			  <!-- Modal content-->
 			  <div class="modal-content">
 				<div class="modal-header">
 				  <button type="button" class="close" data-dismiss="modal">&times;</button>
-				  <h4 class="modal-title">Danh sách nhân viên</h4>
+				  <h4 class="modal-title" style="text-align: center;">Bạn có muốn xóa hay không ?</h4>
 				</div>
-				<div class="modal-body">
-						<table class="table" id="staffList">
-								<thead>
-								  <tr>
-									<th>Chọn nhân viên</th>
-									<th>Tên nhân viên</th>
-								  </tr>
-								</thead>
-								<tbody>
-								 
-								</tbody>
-					    </table>
-							  <input type="hidden" id="buildingId" name="buildingId" value="">
-				</div>
-				<div class="modal-footer">
-				  <button type="button" class="btn btn-default" data-dismiss="modal" id="btnAssignBuilding">Giao tòa nhà</button>
-				  <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+				
+				<div class="modal-footer" style="text-align: center;">
+				  <button type="button" class="btn btn-danger" data-dismiss="modal" id="btnDeleteBrandCofirm">Xóa</button>
+				  <button type="button" class="btn btn-info" data-dismiss="modal">Hủy</button>
 				</div>
 			  </div>
 			</div>

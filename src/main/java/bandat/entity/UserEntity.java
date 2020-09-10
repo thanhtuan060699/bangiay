@@ -5,15 +5,19 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="user")
-public class UserEntity extends BaseEntity{
+public class UserEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
 	@Column(name="username")
 	private String userName;
 	
@@ -26,20 +30,9 @@ public class UserEntity extends BaseEntity{
 	@Column(name="status")
 	private  Integer status;
 
-	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name="user_role",joinColumns =@JoinColumn(name="userid"),inverseJoinColumns = 
-				@JoinColumn(name="roleid"))
-	private List<RoleEntity> roles=new ArrayList<RoleEntity>();
+	@OneToMany(mappedBy = "userEntity")
+	private List<UserRoleEntity> userRoleEntities=new ArrayList<UserRoleEntity>();
 	
-	
-	
-	public List<RoleEntity> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<RoleEntity> roles) {
-		this.roles = roles;
-	}
 
 	public String getUserName() {
 		return userName;
@@ -71,6 +64,30 @@ public class UserEntity extends BaseEntity{
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+	public List<UserRoleEntity> getUserRoleEntities() {
+		return userRoleEntities;
+	}
+
+	public void setUserRoleEntities(List<UserRoleEntity> userRoleEntities) {
+		this.userRoleEntities = userRoleEntities;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	

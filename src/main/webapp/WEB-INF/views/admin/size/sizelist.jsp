@@ -113,10 +113,10 @@
 													
 													<td>
 													
-														<a  href='<c:url value='/admin-land?action=UPDATE&id=${item.id}'/>'>
+														<a  href='<c:url value='/admin/sneaker/size/update?id=${item.id}'/>'>
 															<button class="btn btn-info btn-xs" data-toggle="tolltip"
-														 title="Update tòa nhà" onclick="updateBuilding(${item.id})" >
-															<i class="fa fa-refresh" aria-hidden="true"></i>
+														 title="Update size"  >
+															<i class="fa fa-pencil" aria-hidden="true"></i>
 															</button>
 														</a>
 														

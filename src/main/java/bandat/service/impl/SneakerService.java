@@ -65,6 +65,7 @@ public class SneakerService implements ISneakerService {
 	public void deleteSneaker(SneakerDTO sneakerDTO) {
 		for(int i=0;i<sneakerDTO.getSneakerIds().length;i++) {
 			SneakerEntity sneakerEntity=sneakerRepository.findOne(sneakerDTO.getSneakerIds()[i]);
+			//delete size sneaker
 			for(int j=0;j<sneakerEntity.getSizeOfSneakerEntities().size();j++) {
 				sizeOfSneakersRepository.delete(sneakerEntity.getSizeOfSneakerEntities().get(j).getId());
 			}

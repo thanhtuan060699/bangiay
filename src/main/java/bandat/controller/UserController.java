@@ -29,4 +29,10 @@ public class UserController {
 		ModelAndView modelAndView=new ModelAndView("admin/user/userpassword");
 		return modelAndView;
 	}
+	
+	@RequestMapping(value = "admin/user/add",method = RequestMethod.GET)
+	public ModelAndView addUserAdmin() {
+		ModelAndView modelAndView=new ModelAndView("admin/user/useredit");
+		return modelAndView;
+	}
 }

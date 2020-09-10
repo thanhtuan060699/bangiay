@@ -13,6 +13,9 @@ import javax.persistence.Table;
 public class BrandSneakerEntity extends BaseEntity{
 	@Column(name="name")
 	private String name;
+	
+	@Column(name="status")
+	private Integer status;
 
 	@OneToMany(mappedBy = "brandSneakerEntity")
 	private List<SneakerEntity> sneakerEntities=new ArrayList<SneakerEntity>();
@@ -34,6 +37,15 @@ public class BrandSneakerEntity extends BaseEntity{
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	
 	
 	
 }

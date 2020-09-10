@@ -58,4 +58,10 @@ public class SizeOfSneakersService implements ISizeOfSneakersService {
 		
 	}
 
+	@Override
+	public SizeOfSneakersDTO findBySizId(Long id) {
+		SizeOfSneakersEntity sizeOfSneakersEntity=sizeOfSneakersRepository.findById(id);
+		return sizeOfSneakersConverter.convertToDTO(sizeOfSneakersEntity);
+	}
+
 }

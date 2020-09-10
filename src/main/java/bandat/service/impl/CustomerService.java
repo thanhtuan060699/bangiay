@@ -49,5 +49,21 @@ public class CustomerService implements ICustomerService {
 		customerRepository.save(customerConverter.convertToEntity(customerDTO));
 		
 	}
+
+	@Override
+	public void changeInformation(CustomerDTO customerDTO, CustomerDTO customerCurrent) {
+		customerDTO.setId(customerCurrent.getId());
+		customerDTO.setPassword(customerCurrent.getPassword());
+		customerDTO.setUsername(customerCurrent.getUsername());
+		customerDTO.setStatus(1);
+		CustomerEntity customerEntity=customerConverter.convertToEntity(customerDTO);
+		customerRepository.save(customerEntity);
+	}
+
+	@Override
+	public CustomerDTO findById(CustomerDTO customerDTO) {
+		CustomerEntity customerEntity=customerRepository.findOne(customerDTO.getId());
+		return customerConverter.convertToDTO(customerEntity);
+	}
 	
 }

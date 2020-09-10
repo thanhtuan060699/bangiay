@@ -33,74 +33,19 @@
 						<div class="row">
 							<div class="col-xs-12">
 								<!-- PAGE CONTENT BEGINS -->
-								<div class="row">
-									<div class="col-xs-12 col-sm-12">
-											<div class="widget-box">
-												<div class="widget-header">
-													<h4 class="widget-title">Tìm Kiếm</h4>
-
-													<div class="widget-toolbar">
-														<a href="#" data-action="collapse">
-															<i class="ace-icon fa fa-chevron-up"></i>
-														</a>
-													</div>
-												</div>
-
-												<div class="widget-body">
-													<div class="widget-main">
-														<div class="form-horizontal">
-															<form action="${customerURL}" method="get" id="formSearchUser">
-															<div class="form-group">
-																<div class="col-sm-4">
-																	<label for="name">Tên người dùng </label>
-																	<input type="text" id="name" class="form-control" name="name">
-																</div>
-																<div class="col-sm-4">
-																	<label for="numberPhone">Username</label>
-																	<input type="text" id="phoneNumber" class="form-control" name="phoneNumber">
-																</div>
-																<div class="col-sm-4">
-																	<label for="numberOfBasement">Địa chỉ</label>
-																	<input type="text" id="address" class="form-control" name="address">
-																</div>
-															</div>
-															
-															<div class="form-group">
-																	<div class="col-sm-8">
-																	<c:forEach var="item" items="${buildingTypes}" >
-																		<label class="checkbox-inline">
-																		
-																		</label>
-																	</c:forEach>									
-																	</div>
-															</div>
-															<div class="form-group">
-																	<div class="col-sm-8">
-																			<button type="button" class="btn btn-primary" id="btnSearchCustomer">Tìm kiếm</button>
-																	</div>		
-															</div>
-															<input type="hidden" value="LIST" name="action" />
-														</form>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-								</div>
+								
 	
 								</div><!-- /.row -->
 								<div class="col-xs-12"> <!--  nut -->
 									
 									<div class="pull-right">
-										<c:if test="${not empty role }">
-										<a  href='<c:url value='/admin-user?signal=EDIT'/>' class="btn btn-white btn-info btn-bold" data-toggle="tolltip" title="Thêm khách hàng">
+										<a  href='<c:url value='/admin/user/add'/>' class="btn btn-white btn-info btn-bold" data-toggle="tolltip" title="Thêm khách hàng">
 											<i class="fa fa-plus-circle" aria-hidden="true"></i>
 										</a>
 										<button class="btn btn-white btn-warning btn-bold" data-toggle="tolltip" title="Xóa nhân viên" id="btnDeleteUser">
 											<i class="fa fa-trash" aria-hidden="true"></i>
 										</button>
 										
-										</c:if>
 										<a  href='<c:url value='/admin/user/password'/>' class="btn btn-white btn-info btn-bold" data-toggle="tolltip" title="Đổi mật khẩu">
 											<i class="fa fa-key" aria-hidden="true"></i>
 										</a>

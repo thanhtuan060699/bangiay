@@ -145,7 +145,7 @@
 														<a  href='<c:url value='/admin/sneaker/update?id=${item.id}'/>'>
 															<button class="btn btn-info btn-xs" data-toggle="tolltip"
 														 title="Cập nhật giày" >
-															<i class="fa fa-refresh" aria-hidden="true"></i>
+															<i class="fa fa-pencil" aria-hidden="true"></i>
 															</button>
 														</a>
 														

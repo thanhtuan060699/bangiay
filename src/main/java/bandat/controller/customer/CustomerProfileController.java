@@ -65,4 +65,15 @@ public class CustomerProfileController {
 		modelAndView.addObject("brands", brandSneakerService.findAllNotTotal());
 		return modelAndView;
 	}
+	
+	@RequestMapping(value = "/allstore/profile/updateinfo",method = RequestMethod.GET)
+	public ModelAndView updateCustomerInformation(HttpServletRequest request) {
+		ModelAndView modelAndView=new ModelAndView("web/customerinfoupdate");
+		CustomerDTO customerDTO=(CustomerDTO) SessionUtil.getInstance().getValue(request, "customerSession");
+		customerDTO=customerService.findById(customerDTO);
+		SessionUtil.getInstance().putValue(request, "customerSession", customerDTO);
+		modelAndView.addObject("brands", brandSneakerService.findAllNotTotal());
+		modelAndView.addObject("customerInfo", customerDTO);
+		return modelAndView;
+	}
 }

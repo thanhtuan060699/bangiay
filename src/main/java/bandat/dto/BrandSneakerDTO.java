@@ -6,6 +6,7 @@ public class BrandSneakerDTO extends AbstractDTO<BrandSneakerDTO> {
 	
 	private Integer totalOfSneakers;
 	
+	private Long[] brandIds;
 	
 
 	public String getName() {
@@ -22,6 +23,14 @@ public class BrandSneakerDTO extends AbstractDTO<BrandSneakerDTO> {
 
 	public void setTotalOfSneakers(Integer totalOfSneakers) {
 		this.totalOfSneakers = totalOfSneakers;
+	}
+
+	public Long[] getBrandIds() {
+		return brandIds;
+	}
+
+	public void setBrandIds(Long[] brandIds) {
+		this.brandIds = brandIds;
 	}
 	
 }
